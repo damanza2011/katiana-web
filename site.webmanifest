@@ -1,0 +1,17 @@
+{
+  "name": "KATIANA · Droguería Online",
+  "short_name": "KATIANA",
+  "description": "Tu Droguería de Confianza, Salud a Domicilio 24/7 en Colombia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "64x64 128x128 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

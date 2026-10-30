@@ -1,0 +1,22 @@
+{
+  "name": "katiana-web",
+  "version": "1.0.0",
+  "description": "KATIANA · Droguería y Farmacia Online Inteligente de Colombia | Benchmark Top 5 Droguerías",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8095",
+    "dev": "node --watch scripts/dev-server.js"
+  },
+  "keywords": [
+    "pharmacy",
+    "drogueria",
+    "ecommerce",
+    "farmatodo",
+    "cruz-verde",
+    "colombia",
+    "invima",
+    "gemini"
+  ],
+  "author": "KATIANA S.A.S. / SALMAN Engineering",
+  "license": "MIT"
+}

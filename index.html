@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KATIANA · Droguería y Farmacia Online 24/7 | Envíos Express 45 Min</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="Droguería KATIANA: Tu farmacia digital líder en Colombia. Medicamentos con y sin fórmula, dermocosmética, cuidado infantil y nutrición con entrega express en 45 minutos. Registro INVIMA garantizado." />
+  <meta name="keywords" content="droguería, farmacia, medicamentos a domicilio, katiana, acetaminofén, fórmulas médicas, dermocosmética, farmatodo, cruz verde, colombia" />
+  <meta name="author" content="Droguerías KATIANA S.A.S." />
+  <meta name="theme-color" content="#059669" />
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KATIANA · Droguería y Farmacia Online de Colombia" />
+  <meta property="og:description" content="Salud y medicamentos en tu puerta en menos de 45 minutos. Sube tu fórmula médica o consulta con la Dra. Katiana IA." />
+  <meta property="og:image" content="assets/img/favicon.svg" />
+  <meta property="og:locale" content="es_CO" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Hojas de Estilo Modulares -->
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/commerce.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
+
+  <!-- Schema.org JSON-LD para Farmacia y Droguería -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Pharmacy",
+    "name": "Droguerías KATIANA S.A.S.",
+    "alternateName": "KATIANA Farmacia Online",
+    "url": "https://katiana-web.vercel.app",
+    "logo": "https://katiana-web.vercel.app/assets/img/favicon.svg",
+    "telephone": "+57-601-745-9000",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 15 # 93-47",
+      "addressLocality": "Bogotá",
+      "addressRegion": "Cundinamarca",
+      "postalCode": "110221",
+      "addressCountry": "CO"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "paymentAccepted": "Cash, Credit Card, PSE, Nequi, Daviplata"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 1. Barra Promocional Superior -->
+  <aside class="promo-bar" aria-label="Anuncios de Servicio">
+    <div class="container promo-bar-content">
+      <div class="promo-items-left">
+        <span class="promo-item">
+          <span class="promo-highlight">KATIANA YA ⚡</span> Entrega express en menos de 45 minutos
+        </span>
+        <span class="promo-item">
+          🩺 Medicamentos certificados 100% con registro INVIMA
+        </span>
+      </div>
+      <div class="promo-links-right">
+        <span class="promo-item">📞 Urgencias Farmacéuticas: <strong>(601) 745-9000</strong></span>
+        <a href="#club-section" class="promo-link">⭐ Club Katiana</a>
+        <a href="#faq-section" class="promo-link">Ayuda & Preguntas</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. Header Principal -->
+  <header class="header-main" role="banner">
+    <div class="container header-container">
+      
+      <!-- Marca y Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Página de inicio KATIANA">
+        <div class="brand-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">KATI<span>ANA</span></span>
+          <span class="brand-sub">Droguería & Farmacia</span>
+        </div>
+      </a>
+
+      <!-- Selector de Ubicación / Ciudad -->
+      <button class="location-btn" id="location-selector-btn" title="Cambiar ciudad de entrega">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <div class="location-info">
+          <span class="location-label">Entregar en:</span>
+          <span class="location-val" id="current-city-name">Bogotá D.C.</span>
+        </div>
+      </button>
+
+      <!-- Barra de Búsqueda Predictiva -->
+      <div class="header-search">
+        <form class="search-form" onsubmit="event.preventDefault();" role="search">
+          <span class="search-icon-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input 
+            type="search" 
+            id="header-search-input" 
+            class="search-input" 
+            placeholder="Busca por medicamento, principio activo (ej. paracetamol) o síntoma..." 
+            autocomplete="off"
+            aria-label="Buscar productos"
+          />
+          <button type="button" class="search-clear-btn" id="search-clear-btn" aria-label="Limpiar búsqueda">&times;</button>
+        </form>
+      </div>
+
+      <!-- Acciones Rápidas -->
+      <div class="header-actions">
+        <!-- Subir Fórmula Médica (Inspirado en Farmatodo y Cruz Verde) -->
+        <button class="btn-prescription" data-action="open-prescription">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span>Subir Fórmula</span>
+        </button>
+
+        <!-- Toggle Carrito -->
+        <button class="cart-toggle-btn" data-action="toggle-cart" aria-label="Abrir Carrito de Compras">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Carrito</span>
+          <span class="cart-badge" id="cart-badge-count" style="display: none;">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 3. Sub-barra de Categorías -->
+  <nav class="categories-nav" aria-label="Categorías de Productos">
+    <div class="container">
+      <div class="cat-list" role="tablist">
+        <button class="cat-pill active" data-category="todos" role="tab">💊 Todos los Productos</button>
+        <button class="cat-pill" data-category="medicamentos-otc" role="tab">🛡️ Venta Libre (OTC)</button>
+        <button class="cat-pill" data-category="medicamentos-rx" role="tab">📋 Fórmula Médica</button>
+        <button class="cat-pill" data-category="dermocosmetica" role="tab">✨ Dermocosmética & Skincare</button>
+        <button class="cat-pill" data-category="nutricion" role="tab">🌿 Vitaminas & Nutrición</button>
+        <button class="cat-pill" data-category="bebes" role="tab">👶 Bebé & Maternidad</button>
+        <button class="cat-pill" data-category="botiquin" role="tab">🩹 Botiquín & Primeros Auxilios</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 4. Hero Principal -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      
+      <div class="hero-content">
+        <div class="hero-badge-tag">
+          <span>🌿 FARMACIA ONLINE CERTIFICADA INVIMA</span>
+        </div>
+        <h1 class="hero-title">
+          Tu salud no espera.<br />
+          <span>Medicamentos en 45 min</span> directo a tu puerta.
+        </h1>
+        <p class="hero-description">
+          Combinamos lo mejor de las 5 droguerías líderes de Colombia: rapidez express, catálogo clínico completo, dermocosmética premium y atención guiada por químicos farmacéuticos certificados.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" id="hero-btn-prescription">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Subir Fórmula Médica
+          </button>
+          <button class="btn btn-secondary btn-lg" id="hero-btn-chat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Hablar con Dra. Katiana IA
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="stat-number">45 min</span>
+            <span class="stat-label">Tiempo promedio de entrega</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Garantía Registro INVIMA</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-number">24 / 7</span>
+            <span class="stat-label">Disponibilidad y Asistencia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Visual de Confianza Farmacéutica -->
+      <div class="hero-visual">
+        <div class="hero-visual-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Servicio Farmacéutico Seguro
+            </div>
+            <span class="badge badge-primary">Estándar Oro</span>
+          </div>
+
+          <div class="hero-features-list">
+            <div class="hero-feature-item">
+              <div class="feature-icon-circle">⚡</div>
+              <div class="feature-texts">
+                <h4>Katiana YA Express</h4>
+                <p>Repartidores equipados con maletines térmicos para conservar tus medicinas intactas.</p>
+              </div>
+            </div>
+
+            <div class="hero-feature-item">
+              <div class="feature-icon-circle">🩺</div>
+              <div class="feature-texts">
+                <h4>Regente Farmacéutico Titulado</h4>
+                <p>Verificación técnica de fórmulas médicas y prevención de interacciones de medicamentos.</p>
+              </div>
+            </div>
+
+            <div class="hero-feature-item">
+              <div class="feature-icon-circle">❄️</div>
+              <div class="feature-texts">
+                <h4>Cadena de Frío Monitoreada</h4>
+                <p>Neveras con control de temperatura entre 2°C y 8°C para insulinas y productos biológicos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Barra de 4 Pilares (Benchmark Top 5) -->
+  <section class="trust-bar" aria-label="Garantías del Servicio">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon trust-icon-express">⚡</div>
+        <div class="trust-text">
+          <h4>Entrega en 45 Minutos</h4>
+          <p>Envío express en las principales ciudades</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon trust-icon-rx">📋</div>
+        <div class="trust-text">
+          <h4>Gestión de Fórmulas</h4>
+          <p>Validación y dispensación profesional</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon trust-icon-cold">❄️</div>
+        <div class="trust-text">
+          <h4>Cadena de Frío Garantizada</h4>
+          <p>Preservación biológica certificada</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon trust-icon-regent">👩‍⚕️</div>
+        <div class="trust-text">
+          <h4>Asesoría 24/7</h4>
+          <p>Atención directa por profesionales de salud</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Catálogo Principal -->
+  <main class="catalog-section" id="catalogo">
+    <div class="container">
+      
+      <div class="catalog-header">
+        <div class="catalog-titles">
+          <h2>Catálogo Farmacéutico & Cuidado</h2>
+          <p id="catalog-count-display">Cargando productos verificados...</p>
+        </div>
+
+        <div class="catalog-controls">
+          <label for="sort-select" class="sr-only">Ordenar productos por:</label>
+          <select id="sort-select" class="filter-select">
+            <option value="popular">Más Populares</option>
+            <option value="price-asc">Menor Precio</option>
+            <option value="price-desc">Mayor Precio</option>
+            <option value="rating">Mejor Calificados</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grid de Productos -->
+      <div class="products-grid" id="products-grid">
+        <!-- Renderizado dinámicamente con JavaScript -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 7. Sección Club Katiana (Inspirada en Club Cruz Verde) -->
+  <section class="club-section" id="club-section">
+    <div class="container">
+      <div class="club-card">
+        <div class="club-info">
+          <span class="club-badge">⭐ BENEFICIOS EXCLUSIVOS</span>
+          <h2 class="club-title">Únete al Club Katiana Salud & Bienestar</h2>
+          <p class="club-desc">
+            Regístrate sin costo con tu número de cédula y recibe <strong>15% de descuento inmediato</strong> en tu compra de hoy, más hasta 30% OFF en días especiales de dermocosmética y vitaminas.
+          </p>
+
+          <form class="club-form" id="club-registration-form">
+            <input 
+              type="text" 
+              class="club-input" 
+              id="club-document-input" 
+              placeholder="Ingresa tu número de cédula..." 
+              required
+            />
+            <button type="submit" class="btn btn-secondary">Activar mi 15% OFF</button>
+          </form>
+        </div>
+
+        <div class="club-perks">
+          <div class="club-perk-item">
+            <span>✅</span> 15% OFF permanente en medicamentos seleccionados
+          </div>
+          <div class="club-perk-item">
+            <span>✅</span> Domicilio prioritario sin costo adicional
+          </div>
+          <div class="club-perk-item">
+            <span>✅</span> Recordatorio automático de renovación de recetas
+          </div>
+          <div class="club-perk-item">
+            <span>✅</span> Asesoría prioritaria con químicos farmacéuticos
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Sección FAQ (Preguntas Frecuentes Farmacéuticas) -->
+  <section class="faq-section" id="faq-section">
+    <div class="container">
+      <div class="faq-header">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Todo lo que necesitas saber sobre entregas, recetas y garantías en KATIANA</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-trigger" type="button">
+            <span>¿Cómo funciona la entrega en menos de 45 minutos?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-content">
+            Contamos con centros de distribución y droguerías satélite en las principales localidades y zonas urbanas de Bogotá, Medellín, Cali, Barranquilla, Bucaramanga y Pereira. Al confirmar tu pedido, nuestro sistema asigna el despacho a la droguería KATIANA más cercana para llegar a tu puerta en menos de 45 minutos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button">
+            <span>¿Puedo comprar medicamentos bajo prescripción médica?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-content">
+            Sí. Solo debes hacer clic en <strong>"Subir Fórmula"</strong> y adjuntar una fotografía nítida o archivo PDF de tu prescripción médica con el sello y registro del profesional de la salud. Nuestro regente farmacéutico la validará y coordinará el despacho cumpliendo con todas las normas del INVIMA.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button">
+            <span>¿Cómo se garantiza la cadena de frío de las medicinas?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-content">
+            Los medicamentos fotosensibles o termolábiles (como insulinas y colirios) son transportados en contenedores térmicos herméticos certificados con geles refrigerantes, manteniendo la temperatura controlada entre 2°C y 8°C hasta el momento de la entrega en tus manos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button">
+            <span>¿Cuáles son los métodos de pago aceptados?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-content">
+            Aceptamos pago contra entrega (efectivo o datáfono portátil para tarjetas débito/crédito), transferencias Nequi y Daviplata, además de pagos en línea por PSE y tarjetas Visa/Mastercard.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Footer Corporativo con Normativa INVIMA -->
+  <footer class="footer-main" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <h3>KATI<span>ANA</span></h3>
+          <p>
+            Droguerías KATIANA S.A.S. es la red farmacéutica digital que une tecnología médica de vanguardia con la calidez y rigor de los mejores químicos farmacéuticos de Colombia.
+          </p>
+          <div class="footer-emergency-box">
+            <div class="footer-emergency-title">Línea Nacional de Domicilios 24/7</div>
+            <a href="tel:6017459000" class="footer-phone">(601) 745-9000</a>
+            <div style="font-size: 0.8rem; color: #94a3b8;">WhatsApp Urgencias: +57 310 555 9090</div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Categorías</h4>
+          <div class="footer-links">
+            <a href="#catalogo">Medicamentos con Fórmula</a>
+            <a href="#catalogo">Medicamentos Venta Libre</a>
+            <a href="#catalogo">Dermocosmética Clínica</a>
+            <a href="#catalogo">Nutrición & Suplementos</a>
+            <a href="#catalogo">Cuidado del Bebé</a>
+            <a href="#catalogo">Equipos Médicos & Botiquín</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicio al Cliente</h4>
+          <div class="footer-links">
+            <a href="#" data-action="open-prescription">Subir Fórmula Médica</a>
+            <a href="#club-section">Club Katiana Salud</a>
+            <a href="#faq-section">Preguntas Frecuentes</a>
+            <a href="https://wa.me/573105559090" target="_blank" rel="noopener">Chat con Regente Farmacéutico</a>
+            <a href="#">Políticas de Envío y Devolución</a>
+            <a href="#">Superintendencia de Salud</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sedes y Cobertura</h4>
+          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1rem;">
+            <strong>Sede Central:</strong> Carrera 15 # 93-47, Chicó, Bogotá D.C.<br />
+            <strong>Horario:</strong> Abierto las 24 horas, 365 días del año.
+          </p>
+          <div style="font-size: 0.82rem; color: #34d399; font-weight: 700;">
+            ✓ Cobertura Express: Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Pereira y Cartagena.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-legal">
+        <div class="footer-badges-invima">
+          <div class="invima-seal">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Vigilado por Superintendencia Nacional de Salud & INVIMA</span>
+          </div>
+          <div class="invima-seal">
+            <span>Resolución de Funcionamiento Farmacéutico N° 2024-SDSS-09823</span>
+          </div>
+          <div class="invima-seal">
+            <span>Ley 1581 de 2012: Protección y Tratamiento de Datos Personales</span>
+          </div>
+        </div>
+
+        <p>
+          Advertencia: La información suministrada en este sitio web es netamente informativa y orientadora, en ningún caso sustituye la consulta médica ni la prescripción facultativa. No se automedique. Los medicamentos de venta con receta médica serán dispensados únicamente previa presentación de la fórmula médica válida.
+        </p>
+        <p style="text-align: center; color: #475569; padding-top: 0.5rem;">
+          © 2026 Droguerías KATIANA S.A.S. Todos los derechos reservados. NIT: 901.845.210-4.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 10. Drawer Lateral del Carrito -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <div class="cart-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        Tu Carrito de Farmacia
+      </div>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar Carrito">&times;</button>
+    </div>
+
+    <!-- Barra de Envío Gratis -->
+    <div class="free-shipping-box">
+      <div class="shipping-progress-text" id="free-shipping-text">
+        Calculando envío express...
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="free-shipping-fill"></div>
+      </div>
+    </div>
+
+    <!-- Lista de Productos -->
+    <div class="cart-items" id="cart-items">
+      <!-- Se inyectan productos vía JavaScript -->
+    </div>
+
+    <!-- Resumen y Checkout -->
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal productos:</span>
+        <span id="cart-subtotal">$0</span>
+      </div>
+      <div class="cart-summary-row" style="color: #059669; font-weight: 600;">
+        <span>Descuento Club Katiana:</span>
+        <span id="cart-discount">$0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Domicilio Express (45 min):</span>
+        <span id="cart-shipping">$0</span>
+      </div>
+      <div class="cart-summary-total">
+        <span>Total a Pagar:</span>
+        <span id="cart-total" style="color: #059669;">$0</span>
+      </div>
+
+      <div class="cart-action-buttons">
+        <button class="btn btn-primary" id="btn-open-checkout">Proceder al Pago Seguro</button>
+        <button class="btn btn-checkout-wa" id="btn-checkout-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          Pedir por WhatsApp al Asesor
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 11. Modal Subir Fórmula Médica -->
+  <div class="modal-overlay" id="prescription-modal" role="dialog" aria-modal="true" aria-labelledby="rx-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title" id="rx-modal-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          Subir Fórmula Médica
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Cerrar">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 1.25rem;">
+          Nuestro equipo de químicos y regentes farmacéuticos revisará tu fórmula, verificará la disponibilidad y preparará tu despacho inmediato en menos de 45 minutos.
+        </p>
+
+        <!-- Dropzone de archivo -->
+        <div class="prescription-dropzone" id="prescription-dropzone">
+          <div class="dropzone-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <div class="dropzone-title">Arrastra o selecciona la foto de tu fórmula</div>
+          <div class="dropzone-help">Formatos JPG, PNG o PDF (Máximo 10MB)</div>
+        </div>
+
+        <input type="file" id="prescription-file-input" accept="image/*,.pdf" style="display: none;" />
+
+        <!-- Vista previa de archivo cargado -->
+        <div class="prescription-file-preview" id="prescription-file-preview">
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; color: #065f46;">
+            <span>📄</span>
+            <span id="prescription-file-name">archivo.pdf</span>
+          </div>
+          <button type="button" id="prescription-remove-file" style="color: #e11d48; font-weight: 700; font-size: 0.8rem;">Cambiar</button>
+        </div>
+
+        <!-- Formulario del Paciente -->
+        <form id="prescription-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="rx-patient-name">Nombre del Paciente:</label>
+              <input type="text" id="rx-patient-name" class="form-input" placeholder="Ej. Camila Morales" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rx-patient-doc">Número de Documento / C.C.:</label>
+              <input type="text" id="rx-patient-doc" class="form-input" placeholder="Ej. 1020304050" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="rx-patient-phone">Teléfono / WhatsApp:</label>
+              <input type="tel" id="rx-patient-phone" class="form-input" placeholder="Ej. 310 123 4567" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Modalidad:</label>
+              <div style="display: flex; gap: 1rem; padding-top: 0.4rem; font-size: 0.88rem;">
+                <label><input type="radio" name="rx-type" value="Particular" checked /> Particular</label>
+                <label><input type="radio" name="rx-type" value="Convenio EPS" /> EPS / Póliza</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+            Enviar Fórmula a Validación Farmacéutica
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. Modal Checkout Multi-Paso -->
+  <div class="modal-overlay" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title" id="checkout-modal-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          Finalizar Pedido Express
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Cerrar">&times;</button>
+      </div>
+
+      <form id="checkout-form">
+        <div class="modal-body">
+          <div style="background-color: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 700; color: #065f46; font-size: 0.9rem;">Total a Pagar:</span>
+            <span style="font-size: 1.3rem; font-weight: 900; color: #059669;" id="checkout-modal-total">$0</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="checkout-name">Nombre y Apellidos:</label>
+              <input type="text" id="checkout-name" class="form-input" placeholder="Nombre completo" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="checkout-phone">Teléfono de Contacto:</label>
+              <input type="tel" id="checkout-phone" class="form-input" placeholder="310 000 0000" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="checkout-address">Dirección de Entrega Exacta:</label>
+            <input type="text" id="checkout-address" class="form-input" placeholder="Ej. Calle 100 # 15-20 Apto 402, Torre 1" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Método de Pago:</label>
+            <div class="radio-card-grid">
+              <label class="radio-card selected">
+                <input type="radio" name="checkout-payment" value="Contra entrega (Efectivo/Datáfono)" checked />
+                <span>💵 Contra Entrega</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="checkout-payment" value="Nequi o Daviplata" />
+                <span>📱 Nequi / Daviplata</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="checkout-payment" value="Tarjeta Débito/Crédito Online" />
+                <span>💳 Tarjeta Débito / Crédito</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="checkout-payment" value="PSE Transferencia Bancaria" />
+                <span>🏦 PSE Transferencia</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close-modal>Cancelar</button>
+          <button type="submit" class="btn btn-primary">Confirmar y Despachar Pedido</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 13. Modal Vista Rápida de Producto -->
+  <div class="modal-overlay" id="quickview-modal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">Ficha Farmacéutica</div>
+        <button class="modal-close-btn" data-close-modal aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Rellenado dinámicamente -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-close-modal>Cerrar</button>
+        <button type="button" class="btn btn-primary" id="modal-add-cart-btn">Agregar al Carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Chatbot Widget Concierge Farmacéutico (Dra. Katiana) -->
+  <div class="chat-widget">
+    
+    <!-- Botón Flotante -->
+    <button class="chat-launcher" id="chat-launcher" aria-label="Abrir Asistente Farmacéutico Virtual">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>Dra. Katiana IA</span>
+      <span class="chat-launcher-badge">En línea</span>
+    </button>
+
+    <!-- Ventana de Chat -->
+    <div class="chat-box" id="chat-box" role="dialog" aria-modal="true" aria-label="Chat con Dra. Katiana">
+      <div class="chat-header">
+        <div class="chat-agent-info">
+          <div class="chat-avatar">
+            👩‍⚕️
+            <span class="online-dot"></span>
+          </div>
+          <div>
+            <div class="chat-agent-name">Dra. Katiana</div>
+            <div class="chat-agent-role">Orientación Farmacéutica Digital</div>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-icon-btn" id="chat-close-btn" aria-label="Cerrar Chat">&times;</button>
+        </div>
+      </div>
+
+      <div class="chat-disclaimer">
+        <span>⚠️</span>
+        <span>Orientación preliminar. En emergencias vitales llama de inmediato al 123.</span>
+      </div>
+
+      <div class="chat-messages" id="chat-messages">
+        <!-- Mensajes dinámicos -->
+      </div>
+
+      <!-- Píldoras de Preguntas Rápidas -->
+      <div class="chat-suggestions">
+        <button class="suggestion-pill" data-query="¿Cómo funciona el envío express en 45 minutos?">⚡ Envío 45 min</button>
+        <button class="suggestion-pill" data-query="¿Qué me recomiendas para el dolor de cabeza?">💊 Dolor de Cabeza</button>
+        <button class="suggestion-pill" data-query="¿Cómo subo mi fórmula médica?">📋 Subir Fórmula</button>
+        <button class="suggestion-pill" data-query="¿Cuáles son los beneficios del Club Katiana?">⭐ Descuentos Club</button>
+      </div>
+
+      <div class="chat-input-bar">
+        <input 
+          type="text" 
+          id="chat-input" 
+          class="chat-input" 
+          placeholder="Escribe tu consulta o síntoma..." 
+          autocomplete="off"
+        />
+        <button class="chat-send-btn" id="chat-send-btn" aria-label="Enviar mensaje">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contenedor de Notificaciones Toast -->
+  <div class="toast-container" aria-live="polite"></div>
+
+  <!-- Script Principal de la Aplicación -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

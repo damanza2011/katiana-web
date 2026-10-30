@@ -1,0 +1,7 @@
+.git
+.github
+docs/
+*.cmd
+*.ps1
+LEEME*
+*.md

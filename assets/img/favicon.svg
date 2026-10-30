@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#059669"/>
+  <!-- Medical Cross -->
+  <path d="M26 14H38V26H50V38H38V50H26V38H14V26H26V14Z" fill="#FFFFFF"/>
+  <!-- Gentle leaf/accent in cyan -->
+  <path d="M38 26C45 26 50 31 50 38C50 38 43 39 38 34V26Z" fill="#06B6D4" opacity="0.9"/>
+  <circle cx="32" cy="32" r="4" fill="#059669"/>
+</svg>
