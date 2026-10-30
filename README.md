@@ -37,7 +37,7 @@ python -m http.server 8095
 
 ### 1. Repositorio en GitHub
 El proyecto está sincronizado en:
-👉 **[https://github.com/Salman-Contructora-Inmobiliaria/katiana-web](https://github.com/Salman-Contructora-Inmobiliaria/katiana-web)**
+👉 **[https://github.com/damanza2011/katiana-web](https://github.com/damanza2011/katiana-web)**
 
 ### 2. GitHub Pages
 Ve a `Settings` -> `Pages` -> Selecciona la rama `main` (o GitHub Actions) y el sitio quedará publicado gratis.

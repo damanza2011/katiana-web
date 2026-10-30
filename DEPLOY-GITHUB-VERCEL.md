@@ -23,7 +23,7 @@ Abre en tu navegador: `http://127.0.0.1:8095/`.
 ## 2. Repositorio en GitHub
 
 El repositorio ya ha sido creado e inicializado en tu GitHub:
-**https://github.com/Salman-Contructora-Inmobiliaria/katiana-web**
+**https://github.com/damanza2011/katiana-web**
 
 Para verificar o hacer nuevos commits:
 ```powershell
@@ -37,11 +37,11 @@ git push origin main
 
 ## 3. Despliegue en GitHub Pages (Gratis y Automático)
 
-1. Ingresa a tu repositorio: [https://github.com/Salman-Contructora-Inmobiliaria/katiana-web](https://github.com/Salman-Contructora-Inmobiliaria/katiana-web).
+1. Ingresa a tu repositorio: [https://github.com/damanza2011/katiana-web](https://github.com/damanza2011/katiana-web).
 2. Ve a la pestaña **Settings** (Configuración) -> **Pages** (en el menú izquierdo).
 3. En **Build and deployment -> Source**, selecciona **GitHub Actions** (ya incluye el workflow automático en `.github/workflows/deploy.yml`) o selecciona **Deploy from a branch** -> rama `main` -> `/ (root)`.
 4. Haz clic en **Save**. En 1 o 2 minutos tu sitio estará en vivo en:
-   `https://salman-contructora-inmobiliaria.github.io/katiana-web/`
+   `https://damanza2011.github.io/katiana-web/`
 
 ---
 
